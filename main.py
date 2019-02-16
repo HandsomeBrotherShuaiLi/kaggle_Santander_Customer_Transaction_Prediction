@@ -73,9 +73,9 @@ def measure_importance():
 def measure_importance_plus():
     pred=pd.read_csv('temp/prediction.csv')
     feature_importance=pd.read_csv('temp/feature_importance.csv')
-    pred['prediction']=pred['prediction'].apply(lambda x:1 if x>=2.5 else 0)
-    pred=pred.drop(columns=['Unnamed: 0'])
-    pred.to_csv('temp/prediction_v1.csv')
+    pred['target']=pred['prediction'].apply(lambda x:1 if x>=2.5 else 0)
+    pred=pred.drop(columns=['Unnamed: 0','prediction'])
+    pred.to_csv('temp/prediction_v1.csv', index=False)
 
 
 
